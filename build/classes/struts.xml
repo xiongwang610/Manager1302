@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+		<package name="default" extends="struts-default" namespace="/"></package>
+		
+		<package name="user" extends="default" namespace="/" >
+			<action name="*_*" class="action.{1}Action" method="{2}">
+				
+			</action>
+		</package>
+		
+		<package name="words" extends="default" namespace="/" >
+			<action name="*_*" class="action.{1}Action" method="{2}">
+				<result name="query" type="redirect">/jsp/showWords.jsp</result>
+			</action>
+		</package>
+	</struts>
