@@ -7,7 +7,8 @@
         <id name="sid" type="java.lang.String">
             <generator class="assigned" />
         </id>
-        <property name="sname" type="java.lang.String">        </property>
+        <property name="num" type="integer"></property>
+        <property name="sname" type="java.lang.String"></property>
         <property name="phoneNumber" type="java.lang.String">
         </property>
         <property name="address" type="java.lang.String">

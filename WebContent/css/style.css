@@ -1,13 +1,5 @@
 
-body{
-	margin:0;
-	font-family: 'Titillium Web', sans-serif;
-	transition: 0.5s all;
-	-webkit-transition: 0.5s all;
-	-o-transition: 0.5s all;
-	-ms-transition: 0.5s all;
-	-moz-transition: 0.5s all;
-}
+
 .header {
 	background: #350f0f;
 	padding: 2.5em 0;
@@ -20,9 +12,6 @@ body{
 	color: #fff;
 	text-shadow: 0 0 1px rgba(255,255,255,0.3);
 	font-family: 'Pathway Gothic One', sans-serif;
-}
-.header-logo a {
-  display: block;
 }
 .top-nav{
 	float: right;

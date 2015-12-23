@@ -17,15 +17,25 @@ public class Student implements Serializable {
 	private Date birthday; //出生日期 
 	private String url;  //生活照url
 	private String dormintory; //宿舍号
+	private int num; //班级序号
 	
-	
+	public int getNum() {
+		return num;
+	}
+
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+
 	public Student(){
 		
 	}
 	
 	
 	public Student(String sid, String sname, String phoneNumber, String address, Date birthday, String url,
-			String dormintory) {
+			String dormintory,int num) {
 		super();
 		this.sid = sid;
 		this.sname = sname;
@@ -34,6 +44,7 @@ public class Student implements Serializable {
 		this.birthday = birthday;
 		this.url = url;
 		this.dormintory = dormintory;
+		this.num = num;
 	}
 
 

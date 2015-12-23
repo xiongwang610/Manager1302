@@ -59,32 +59,41 @@ public class WordsAction extends SuperAction {
 	
 	//添加留言
 	public String addWords(){
-		
+		System.out.println("1111111");
 		WordsService wordsService = new WordsServiceImpl();
 		words.setDate(new Date());
 		words.setStudent(student);
 		wordsService.addWords(words);
+		request.setAttribute("add_success", "添加成功");
 		
 		return "addWords_success";
 	}
-	
-	
+
 	//验证添加留言时留言和学号不能为空且学号不能写错
 	@Override
 	public void validate() {
 		
 		if(words.getContent() == null)	addFieldError("content_error", "留言内容不能为空");
-		if(words.getSid() == null) {
+		if(words.getSid().isEmpty()) {
+			
 			addFieldError("sid_error", "学号不能为空");
 		}else{
 			StudentService studentService  = new StudentServiceImpl();
-			Student student = studentService.getStudentBySid(words.getSid());
-			if(student.equals(null)) addFieldError("sid_error", "学号错误");
+			student = studentService.getStudentBySid(words.getSid());
+			if(student == null) addFieldError("sid_error", "学号错误");
 		}
 		
 	}
 	
 	
+	public Words getWords() {
+		return words;
+	}
+
+
+	public void setWords(Words words) {
+		this.words = words;
+	}
 	
 	public int getWord_id() {
 		return word_id;

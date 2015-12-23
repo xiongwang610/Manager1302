@@ -23,7 +23,18 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public void saveStudent(Student student) {
 		
-
+			Session session = sessionFactory.getCurrentSession();
+			Transaction tx = null;
+			try{
+				tx = session.beginTransaction();
+				session.save(student);
+				tx.commit();
+			}catch(Exception e){
+				if(tx != null){
+					tx = null;
+				}
+				throw e;
+			}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -36,14 +47,11 @@ public class StudentServiceImpl implements StudentService {
 		
 		try{
 			tx = session.beginTransaction();
-			String hql = "from Student where sid=: sid";
+			String hql = "from Student where sid=:sid";
 			Query query = session.createQuery(hql);
 			query.setParameter("sid", sid);
-			List<Student> list = query.list();
-			if(list != null && list.size() > 0){
-				student = list.get(0);
-			}
-			
+			student = (Student) query.uniqueResult();
+			tx.commit();
 		}catch(Exception e){
 			if(tx != null){
 				tx.rollback();
@@ -57,7 +65,22 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public List<Student> getStudentByPage(int first, int max) {
-		return null;
+		
+		List<Student> list = null;
+		Session session = sessionFactory.getCurrentSession();
+		Transaction tx = null;
+		try{
+			tx = session.beginTransaction();
+			Query query = session.createQuery("from Student");
+			list = query.list();
+			tx.commit();
+		}catch(Exception e){
+			if(tx != null){
+				tx = null;
+			}
+			System.out.println(e);
+		}
+		return list;
 		
 
 	}
