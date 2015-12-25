@@ -5,9 +5,10 @@
 	<struts>
 		<package name="default" extends="struts-default" namespace="/"></package>
 		
-		<package name="user" extends="default" namespace="/" >
+		<package name="student" extends="default" namespace="/" >
 			<action name="*_*" class="action.{1}Action" method="{2}">
-				
+				<result name="addStudent_success"></result>	
+				<result name="query" type=""></result>
 			</action>
 		</package>
 		

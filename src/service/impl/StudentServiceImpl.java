@@ -1,7 +1,11 @@
 package service.impl;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -83,6 +87,18 @@ public class StudentServiceImpl implements StudentService {
 		return list;
 		
 
+	}
+
+	@Override
+	public String saveFile(File file, String fileFileName,String image_url) throws IOException {
+		
+		String fileName = new Date().getTime() + fileFileName;
+		File image_file  = new File(image_url); 
+		if(!image_file.exists()){
+			image_file.mkdir();
+		}
+		FileUtils.copyFile(file, new File(image_file,fileName));
+		return fileName;
 	}
 
 }
