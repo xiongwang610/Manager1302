@@ -5,18 +5,24 @@
 	<struts>
 		<package name="default" extends="struts-default" namespace="/"></package>
 		
-		<package name="student" extends="default" namespace="/" >
+		<!--  <package name="student" extends="default" namespace="/" >
 			<action name="*_*" class="action.{1}Action" method="{2}">
-				<result name="addStudent_success"></result>	
-				<result name="query" type=""></result>
+				<result name="success" >/jsp/showStudent.jsp</result>
 			</action>
-		</package>
+		</package> -->
 		
 		<package name="words" extends="default" namespace="/" >
 			<action name="*_*" class="action.{1}Action" method="{2}">
-				<result name="query" type="redirect">/jsp/showWords.jsp</result>
+				<result name="query_words" type="redirect">/jsp/showWords.jsp</result>
 				<result name="addWords_success">/jsp/addWords.jsp</result>
 				<result name="input">/jsp/addWords.jsp</result>
+				<result name="query_student" >/jsp/showStudent.jsp</result>
+				<result name="addStudent_success">/jsp/addStudent.jsp</result>
 			</action>
+			<interceptor-ref name="fileUpload">
+					<param name="allowedTypes">image/png,image/jpeg</param>
+					<param name="maximumSize">1024000</param>
+             	</interceptor-ref> 
+             	<interceptor-ref name="defaultStack"/>
 		</package>
 	</struts>

@@ -40,7 +40,7 @@ public class WordsAction extends SuperAction {
 		List<Words> list = wordsService.getWordsbyPages(word_id, MAX);
 		session.setAttribute("words", list);
 		
-		return "query";
+		return "query_words";
 	}
 	
 	
@@ -53,13 +53,13 @@ public class WordsAction extends SuperAction {
 		System.out.println(list.size());
 		session.setAttribute("words", list);
 		
-		return "query";
+		return "query_words";
 	}
 	
 	
 	//添加留言
 	public String addWords(){
-		System.out.println("1111111");
+
 		WordsService wordsService = new WordsServiceImpl();
 		words.setDate(new Date());
 		words.setStudent(student);

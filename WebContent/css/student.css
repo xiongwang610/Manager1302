@@ -1,0 +1,17 @@
+.all{
+	width: 400px;
+	height:350px;
+	float: left;
+	padding: 5px;
+}
+.image img{
+	width: 250px;
+	height: 250px;
+	margin-right: 10px;
+	float:left;
+}
+.imformation{
+	width:100px;
+	height:350;
+	float:left;
+}

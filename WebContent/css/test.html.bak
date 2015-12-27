@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="student.css" type="text/css" rel="stylesheet" >
+</head>
+<body>
+	<div class="all">
+		<div class="image">
+			<img alt="我是" src="../images/img1.jpg">
+		</div>
+		<div class="imformation">
+			<p>序号：</p>
+			<p>姓名：</p>
+			<p>学号：</p>
+			<p>生日：</p>
+			<p>手机：</p>
+			<p>寝室：</p>
+		</div>
+	</div>
+</body>
+</html>

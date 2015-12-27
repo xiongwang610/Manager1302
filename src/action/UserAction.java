@@ -41,7 +41,7 @@ public class UserAction extends SuperAction implements ModelDriven<User>{
 //		service.addWords(words3);
 //		service.addWords(words4);
 //		System.out.println("存储成功");
-//		MySessionFactory.createTable();
+		MySessionFactory.createTable();
 		return SUCCESS;
 //		UserService service = new UserServiceImpl();
 //		if(service.loginUser(user)){
