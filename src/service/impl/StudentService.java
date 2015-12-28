@@ -12,5 +12,5 @@ public interface StudentService {
 	public Student getStudentBySid(String sid);  //通过学号获取Student
 	public List<Student> getStudentByPage(int first ,int max);  //分页查询
 	public String saveFile(File file,String fileFileName,String image_url)throws IOException;
-	
+	public void updateStudent(Student student);
 }

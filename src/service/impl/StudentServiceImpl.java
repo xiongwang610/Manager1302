@@ -101,4 +101,22 @@ public class StudentServiceImpl implements StudentService {
 		return fileName;
 	}
 
+	@Override
+	public void updateStudent(Student student) {
+		
+		Session session = sessionFactory.getCurrentSession();
+		Transaction tx = null;
+		try{
+			tx = session.beginTransaction();
+			session.saveOrUpdate(student);
+		}catch(Exception e){
+			if(tx != null){
+				tx.rollback();
+			}
+			System.out.println(e);
+		}
+		
+		
+	}
+
 }

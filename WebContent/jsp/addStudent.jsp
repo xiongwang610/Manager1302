@@ -10,7 +10,7 @@
 <body>
 	
 		<table border="1px" >
-		<s:form id="id" action="Student_addStudent" method="POST" enctype="multipart/form-data">
+		<s:form id="id" action="Student_addStudent" method="post" enctype="multipart/form-data">
 			<tr><s:textfield name="student.sname" label="姓名"></s:textfield><s:fielderror fieldName="sname_error" /></tr>
 			<tr><s:textfield name="student.sid" label="学号"></s:textfield><s:fielderror fieldName="sid_error" /></tr>
 			<tr><s:textfield name="student.num" label="序号"></s:textfield><s:fielderror fieldName="num_error" /></tr>
@@ -19,7 +19,10 @@
 			<tr><s:textfield name="student.birthday" label="生日"></s:textfield><s:fielderror fieldName="birthday_error" /></tr>
 			<tr><s:textfield name="student.address" label="地址"></s:textfield><s:fielderror fieldName="address_error" /></tr>
 			<tr><s:file name="file"></s:file></tr>
-			<tr><s:submit label="添加"></s:submit></tr>
+			<tr>
+				<td><s:reset label="重置" /></td>
+				<td><s:submit label="添加"></s:submit></td>
+			</tr>
 		</s:form>
 		</table>
 	

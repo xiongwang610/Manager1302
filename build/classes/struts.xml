@@ -3,26 +3,39 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 	<struts>
-		<package name="default" extends="struts-default" namespace="/"></package>
+		<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+		<constant name="struts.devMode" value="true" />
+		<constant name="struts.multipart.saveDir" value="/tmp"/>
+	
 		
-		<!--  <package name="student" extends="default" namespace="/" >
+		<!--<package name="student" extends="struts-default" namespace="/" >
 			<action name="*_*" class="action.{1}Action" method="{2}">
-				<result name="success" >/jsp/showStudent.jsp</result>
-			</action>
-		</package> -->
-		
-		<package name="words" extends="default" namespace="/" >
-			<action name="*_*" class="action.{1}Action" method="{2}">
-				<result name="query_words" type="redirect">/jsp/showWords.jsp</result>
-				<result name="addWords_success">/jsp/addWords.jsp</result>
-				<result name="input">/jsp/addWords.jsp</result>
+				<result name="input">/jsp/addStudent.jsp</result>
 				<result name="query_student" >/jsp/showStudent.jsp</result>
 				<result name="addStudent_success">/jsp/addStudent.jsp</result>
-			</action>
-			<interceptor-ref name="fileUpload">
+				<interceptor-ref name="fileUpload">
 					<param name="allowedTypes">image/png,image/jpeg</param>
 					<param name="maximumSize">1024000</param>
              	</interceptor-ref> 
              	<interceptor-ref name="defaultStack"/>
+			</action>
+		</package> -->
+		
+		<package name="words" extends="struts-default" namespace="/" >
+			<action name="*_*" class="action.{1}Action" method="{2}">
+				<result name="query_words" type="redirect">/jsp/showWords.jsp</result>
+				<result name="addWords_success">/jsp/addWords.jsp</result>
+				<result name="input">/jsp/addWords.jsp</result>
+			</action>
+			<action name="*_*" class="action.{1}Action" method="{2}">
+				<result name="input">/jsp/addStudent.jsp</result>
+				<result name="query_student" >/jsp/showStudent.jsp</result>
+				<result name="addStudent_success">/jsp/addStudent.jsp</result>
+				<interceptor-ref name="fileUpload">
+					<param name="allowedTypes">image/png,image/jpeg</param>
+					<param name="maximumSize">1024000</param>
+             	</interceptor-ref> 
+             	<interceptor-ref name="defaultStack"/>
+			</action>
 		</package>
 	</struts>

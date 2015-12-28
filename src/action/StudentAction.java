@@ -47,18 +47,28 @@ public class StudentAction extends SuperAction {
 		
 	}
 	
-	
+	public String UpdateStudent(){
+		
+		StudentService studentService = new StudentServiceImpl();
+		studentService.updateStudent(student);
+		return "update_student";
+		
+	}
 	
 	public void validate() {
 		
-		if(student.getSid() == null)addFieldError("sid_error", "学号不能为空");
-		if(student.getSname() == null)addFieldError("sname_error", "名字不能为空");
-		if(student.getPhoneNumber() == null)addFieldError("phoneNumber_error", "手机号码不能为空");
-		if(student.getAddress() == null)addFieldError("address_error", "地址不能为空");
-		if(student.getBirthday() == null)addFieldError("birthday", "生日不能为空");
-		if(student.getDormintory() == null)addFieldError("dormintory", "寝室号不能为空");
-		if(student.getNum() == 0)addFieldError("num_error", "序号不能为空");
+		if(student.getSid().equals(""))addFieldError("sid_error", "学号不能为空");
+		if(student.getSname().equals(""))addFieldError("sname_error", "名字不能为空");
+		if(student.getPhoneNumber().equals(""))addFieldError("phoneNumber_error", "手机号码不能为空");
+		if(student.getAddress().equals(""))addFieldError("address_error", "地址不能为空");
+		if(student.getBirthday().equals(""))addFieldError("birthday_error", "生日不能为空");
+		if(student.getDormintory().equals(""))addFieldError("dormintory_error", "寝室号不能为空");
+		
 	}
+	
+	
+
+	
 	public Student getStudent() {
 		return student;
 	}
