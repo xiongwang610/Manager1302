@@ -31,7 +31,7 @@
 			<p>生日：<%=student.getBirthday() %></p>
 			<p>手机：<%=student.getPhoneNumber() %></p>
 			<p>寝室：<%=student.getDormintory() %></p>
-			<p><a href="#" style="list-style: none;">修改信息</a></p>
+			<p><a href="Student_toUpdateStudent?student.sid="+<%=student.getSid() %> style="list-style: none;">修改信息</a></p>
 		</div>
 	</div>
 	<%

@@ -47,14 +47,25 @@ public class StudentAction extends SuperAction {
 		
 	}
 	
-	public String UpdateStudent(){
+	@SkipValidation
+	public String updateStudent(){
 		
+		System.out.println("888888888888888");
 		StudentService studentService = new StudentServiceImpl();
 		studentService.updateStudent(student);
 		return "update_student";
 		
 	}
 	
+	@SkipValidation
+	public String toUpdateStudent(){
+		
+		StudentService studentService = new StudentServiceImpl();
+		Student student1 = studentService.getStudentBySid(student.getSid());
+		request.setAttribute("student", student1);
+		
+		return "toUpdateStudent_success" ;
+	}
 	public void validate() {
 		
 		if(student.getSid().equals(""))addFieldError("sid_error", "学号不能为空");
