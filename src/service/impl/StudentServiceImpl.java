@@ -109,6 +109,7 @@ public class StudentServiceImpl implements StudentService {
 		try{
 			tx = session.beginTransaction();
 			session.saveOrUpdate(student);
+			tx.commit();
 		}catch(Exception e){
 			if(tx != null){
 				tx.rollback();

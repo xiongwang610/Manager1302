@@ -24,7 +24,6 @@ public class StudentAction extends SuperAction {
 	public String addStudent() throws IOException{
 		
 		StudentService studentService = new StudentServiceImpl();
-		System.out.println(111111);
 		if(file != null){
 			String image_url = applicationContext.getRealPath("images");
 			String url = studentService.saveFile(file, fileFileName, image_url);  //存储图片并获取url
@@ -39,7 +38,6 @@ public class StudentAction extends SuperAction {
 	public String getStudentByPage(){
 		
 		StudentService studentService = new StudentServiceImpl();
-		System.out.println(student.getNum());
 		List<Student> list = studentService.getStudentByPage(student.getNum(), 8);
 		session.setAttribute("student", list);
 	
@@ -50,22 +48,24 @@ public class StudentAction extends SuperAction {
 	@SkipValidation
 	public String updateStudent(){
 		
-		System.out.println("888888888888888");
 		StudentService studentService = new StudentServiceImpl();
 		studentService.updateStudent(student);
+		List<Student> list = studentService.getStudentByPage(0, 8);
+		session.setAttribute("student", list);
+		
 		return "update_student";
 		
 	}
 	
-	@SkipValidation
+	
 	public String toUpdateStudent(){
 		
 		StudentService studentService = new StudentServiceImpl();
-		Student student1 = studentService.getStudentBySid(student.getSid());
-		request.setAttribute("student", student1);
-		
+		student = studentService.getStudentBySid(student.getSid());
+		session.setAttribute("student", student);
 		return "toUpdateStudent_success" ;
 	}
+	
 	public void validate() {
 		
 		if(student.getSid().equals(""))addFieldError("sid_error", "学号不能为空");

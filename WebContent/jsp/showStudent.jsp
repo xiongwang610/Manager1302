@@ -6,6 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="./css/student.css" type="text/css" rel="stylesheet" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>学生信息</title>
 </head>
@@ -22,7 +23,17 @@
 	%>
 	<div class="all">
 		<div class="image">
-			<img alt="我是"+<%=student.getSname() %> src=<%=student.getUrl() %>>
+		<% if("".equals(student.getUrl())){
+			System.out.println("00111111111");%>
+			<img alt="我是+<%=student.getSname() %>" src="<%=student.getUrl() %>">
+			<%
+				}else{
+					System.out.println("000000000");
+			%>
+			<img alt="wwww" src="./images/default.jpg">
+			<%
+				}
+			%>
 		</div>
 		<div class="imformation">
 			<p>序号：<%=student.getNum() %>
@@ -31,7 +42,7 @@
 			<p>生日：<%=student.getBirthday() %></p>
 			<p>手机：<%=student.getPhoneNumber() %></p>
 			<p>寝室：<%=student.getDormintory() %></p>
-			<p><a href="Student_toUpdateStudent?student.sid="+<%=student.getSid() %> style="list-style: none;">修改信息</a></p>
+			<p><a href="Student_toUpdateStudent?student.sid=<%=student.getSid() %>" style="list-style: none;">修改信息</a></p>
 		</div>
 	</div>
 	<%
